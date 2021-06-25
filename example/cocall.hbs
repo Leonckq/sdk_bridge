@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <script type="text/javascript"
+          src="https://happ.thunisoft.com/happ/resources/js/libs/mobile-require-min-v2.1.11.js"></script>
+  <script>
+    require.config({
+      shim: {
+        'jui': ['jquery'],
+        'happ-mobile': ['happ'],
+        'happ': ['jquery', 'happutils', 'happprototype'],
+      },
+      paths: {
+        'jquery': ['https://happ.thunisoft.com/happ/resources/js/libs/jquery/jquery.min-v1.11.3'],
+        'jblock': ['https://happ.thunisoft.com/happ/resources/js/libs/jquery/jquery.blockUI-v2.70.0'],
+        'jui': ['https://happ.thunisoft.com/happ/resources/js/libs/jquery/jquery.ui.min-v1.11.4'],
+        'happ': ['https://happ.thunisoft.com/happ/resources/js/libs/happ/happ-v0.0.1'],
+        'happprototype': ['https://happ.thunisoft.com/happ/resources/js/libs/happ/happ-prototype-v0.0.1'],
+        'happutils': ['https://happ.thunisoft.com/happ/resources/js/libs/happ/happ-utils-v0.0.1'],
+        'location-api': ['https://happ.thunisoft.com/happ/resources/js/libs/location/location'],
+        'share-api': ['https://happ.thunisoft.com/happ/resources/js/libs/share/share'],
+        'speech-api': ['https://happ.thunisoft.com/happ/resources/js/libs/speech/speech'],
+        'mobile': ['https://happ.thunisoft.com/happ/resources/js/libs/mobile/mobile'],
+        'happviews': ['https://happ.thunisoft.com/happ/resources/js/libs/happ/happ-views-v0.0.1'],
+        'happ-extend': ['https://hybx.thunisoft.com/applet/happ-extend']
+      }
+    })
+
+    if (app.browser.versions.android) {
+      require.config({
+        paths: {
+          'mobile': ['https://happ.thunisoft.com/happ/resources/js/libs/android/android-v0.0.1'],
+          'happ-mobile': ['https://happ.thunisoft.com/happ/resources/js/libs/android/android-v0.0.1']
+        }
+      })
+    } else if (app.browser.versions.ios) {
+      require.config({
+        paths: {
+          'mobile': ['https://happ.thunisoft.com/happ/resources/js/libs/ios/ios-v0.0.1'],
+          'happ-mobile': ['https://happ.thunisoft.com/happ/resources/js/libs/ios/ios-v0.0.1']
+        }
+      })
+    }
+    // const isiOS = /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)
+    // app.require(['mobile', 'jquery',"happutils"], function(mobile, $, happutils) {//for android
+    app.require(['happ-mobile', 'jquery', 'happutils'], function (mobile, $, happutils) {// for ios
+      window.mobile = mobile
+      window.happutils = happutils
+      mobile.init()
+    })
+  </script>
+</head>
+<body>
+<div id="root">
+</div>
+</body>
+</html>

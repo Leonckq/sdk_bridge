@@ -1,0 +1,52 @@
+{
+  "name": "@ekuaibao/sdk-bridge",
+  "version": "1.4.2",
+  "description": "易快报为第三放平台提供的桥接API",
+  "license": "MIT",
+  "sideEffects": false,
+  "scripts": {
+    "build": "rm -rf dist && npm run optimize && npm run copy && npm run copyLIB",
+    "optimize": "npm run build:src",
+    "copy": "cp -R package.json README.md .npmignore dist",
+    "copyLIB": "cp src/lib/*.js dist/lib && cp src/lib/*.d.ts dist/lib",
+    "publish2npm": "npm run build && npm publish dist",
+    "build:src": "tsc -p tsconfig.json",
+    "example": "webpack-dev-server --color --progress"
+  },
+  "resolutions": {
+    "fsevents": ""
+  },
+  "peerDependencies": {
+    "@ekuaibao/fetch": "*"
+  },
+  "devDependencies": {
+    "@ekuaibao/polyfill": "^1.0.1",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "prettier": "^1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "typescript": "^3",
+    "vconsole": "^3.3.4",
+    "whispered-build": "^1.0.72"
+  },
+  "publishConfig": {
+    "registry": "https://npm.ekuaibao.com/"
+  },
+  "dependencies": {
+    "@ekuaibao/fetch": "*",
+    "@ekuaibao/iframe-layer": "^0.11.0",
+    "@ekuaibao/image-player": "^5.19.9",
+    "@ekuaibao/messagecenter": "^5.1.0",
+    "@ekuaibao/platform.is": "^1.0.8",
+    "@ekuaibao/react-modal": "^1.0.6",
+    "@ekuaibao/session-info": "^1.0.0",
+    "dingtalk-jsapi": "^2.8.7",
+    "js-cookie": "^2.2.1",
+    "qs": "^6.9.4",
+    "reflect-metadata": "^0.1.13",
+    "simple-local-db": "^1.0.1",
+    "tslib": "^1",
+    "typedi": "^0.8.0"
+  }
+}

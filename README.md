@@ -1,1 +1,3 @@
-# sdk_bridge
+### 安装
+
+> npm i @ekuaibao/sdk-bridge

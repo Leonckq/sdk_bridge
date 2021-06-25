@@ -1,0 +1,30 @@
+@startuml
+
+package "app" {
+
+app --> SDK: app.xxx()
+
+    package "SDK" {
+       [scan] --> implementation
+       [preview]  --> implementation
+       [...]  --> implementation
+      }
+
+  package "implementation"{
+       [dingtalk]
+       [kdcloud]
+       [wechat]
+       [others]
+  }
+
+
+
+}
+
+
+
+
+
+@enduml
+
+
